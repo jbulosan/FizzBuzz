@@ -1,0 +1,30 @@
+__author__ = 'jbulosan'
+
+import sys
+
+filename = sys.argv[1]
+infile = open(filename, "r")
+
+for line in infile:
+    params = line.split()
+    A = int(params[0])
+    B = int(params[1])
+    N = int(params[2])
+
+    output = ''
+    for i in range(1,N+1):
+        divisible = False
+        if i % A == 0:
+            divisible = True
+            output += 'F'
+        if i % B == 0:
+            divisible = True
+            output += 'B'
+        if not divisible:
+            output += str(i)
+
+        if i < N:
+            output += ' '
+    print output
+
+infile.close()
